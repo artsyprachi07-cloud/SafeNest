@@ -1,7 +1,7 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
+<!DOCTYPE html>  <html lang="en">  <head>  
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>SafeNest</title>  <style>  
+  
 *{  
     box-sizing:border-box;  
     margin:0;  
@@ -12,16 +12,15 @@ body{
     font-family:Arial,sans-serif;  
     background:#fff8e8;  
     color:#5b4630;  
-    min-height:100vh;  
 }  
   
 header{  
     text-align:center;  
-    padding:45px 20px 25px;  
+    padding:40px 20px 25px;  
 }  
   
 .shield{  
-    font-size:60px;  
+    font-size:65px;  
 }  
   
 .logo{  
@@ -33,8 +32,8 @@ header{
   
 .tagline{  
     margin-top:8px;  
-    font-size:17px;  
     color:#9a7448;  
+    font-size:17px;  
     font-style:italic;  
 }  
   
@@ -43,19 +42,49 @@ header{
     height:3px;  
     background:#c99a5b;  
     margin:18px auto;  
+    border-radius:10px;  
 }  
   
 .intro{  
-    max-width:520px;  
+    max-width:550px;  
     margin:20px auto;  
-    line-height:1.6;  
-    font-size:16px;  
+    line-height:1.7;  
 }  
   
 .container{  
     width:92%;  
-    max-width:600px;  
+    max-width:650px;  
     margin:auto;  
+}  
+  
+.nav{  
+    display:grid;  
+    grid-template-columns:1fr 1fr;  
+    gap:12px;  
+    margin:25px 0;  
+}  
+  
+.nav button{  
+    padding:17px 8px;  
+    border:2px solid #c99a5b;  
+    border-radius:15px;  
+    background:white;  
+    color:#8b6438;  
+    font-weight:bold;  
+    cursor:pointer;  
+}  
+  
+.nav button:hover{  
+    background:#c99a5b;  
+    color:white;  
+}  
+  
+.section{  
+    display:none;  
+}  
+  
+.section.active{  
+    display:block;  
 }  
   
 .card{  
@@ -73,26 +102,37 @@ header{
   
 .card p{  
     line-height:1.6;  
+    margin:7px 0;  
 }  
   
-input,textarea,select{  
+input,  
+select,  
+textarea{  
     width:100%;  
     padding:13px;  
     margin:8px 0 14px;  
     border:1px solid #c99a5b;  
     border-radius:10px;  
     font-size:15px;  
+    font-family:Arial,sans-serif;  
 }  
   
 textarea{  
-    height:100px;  
+    height:110px;  
+    resize:vertical;  
 }  
   
-button{  
+label{  
+    display:block;  
+    font-weight:bold;  
+    margin-top:12px;  
+}  
+  
+.action{  
     width:100%;  
     padding:15px;  
     border:none;  
-    border-radius:12px;  
+    border-radius:11px;  
     background:#8b6438;  
     color:white;  
     font-size:16px;  
@@ -100,14 +140,73 @@ button{
     cursor:pointer;  
 }  
   
-button:hover{  
+.action:hover{  
     opacity:.9;  
+}  
+  
+.success{  
+    display:none;  
+    margin-top:15px;  
+    padding:14px;  
+    border-radius:10px;  
+    background:#edf7ed;  
+    color:#39703d;  
+    text-align:center;  
+}  
+  
+.number{  
+    text-align:center;  
+    font-size:36px;  
+    font-weight:bold;  
+    color:#a34d37;  
+    margin:15px;  
+}  
+  
+.stats{  
+    display:grid;  
+    grid-template-columns:1fr 1fr;  
+    gap:12px;  
+}  
+  
+.stat{  
+    background:#fff8e8;  
+    padding:18px;  
+    border-radius:12px;  
+    text-align:center;  
+}  
+  
+.stat strong{  
+    display:block;  
+    font-size:28px;  
+    color:#8b6438;  
+}  
+  
+.quiz-option{  
+    width:100%;  
+    padding:13px;  
+    margin:6px 0;  
+    border:1px solid #c99a5b;  
+    border-radius:10px;  
+    background:#fffdf7;  
+    color:#5b4630;  
+    text-align:left;  
+    cursor:pointer;  
+}  
+  
+.quiz-option:hover{  
+    background:#fff1d0;  
+}  
+  
+.quiz-result{  
+    margin-top:15px;  
+    font-weight:bold;  
+    text-align:center;  
 }  
   
 .task{  
     background:#fff8e8;  
-    padding:12px;  
-    margin:8px 0;  
+    padding:14px;  
+    margin:10px 0;  
     border-radius:10px;  
 }  
   
@@ -116,7 +215,7 @@ button:hover{
     font-size:48px;  
     font-weight:bold;  
     color:#8b6438;  
-    margin:15px;  
+    margin:18px;  
 }  
   
 .timer-buttons{  
@@ -130,9 +229,10 @@ button:hover{
   
 .tip{  
     padding:12px;  
-    border-left:4px solid #c99a5b;  
-    margin:10px 0;  
+    margin:9px 0;  
     background:#fffaf0;  
+    border-left:4px solid #c99a5b;  
+    line-height:1.5;  
 }  
   
 .footer{  
@@ -141,9 +241,24 @@ button:hover{
     color:#92785c;  
     font-size:13px;  
 }  
+  
+@media(max-width:450px){  
+  
+    .logo{  
+        font-size:35px;  
+    }  
+  
+    .nav{  
+        grid-template-columns:1fr;  
+    }  
+  
+}  
+  
 </style>  </head>  <body>  <header>  <div class="shield">🛡️</div>  
 
-<h1 class="logo">SAFENEST</h1>  
+<h1 class="logo">  
+    SAFENEST  
+</h1>  
 
 <p class="tagline">  
     Science for a Safer Society  
@@ -152,120 +267,534 @@ button:hover{
 <div class="line"></div>  
 
 <p class="intro">  
-    A citizen-focused platform for safety,  
-    awareness and everyday problems.  
+    A simple platform for safety awareness,  
+    responsible reporting and useful everyday tools.  
 </p>
 
-</header>  <div class="container">  <!-- STUDY PROBLEM -->  <div class="card">  <h2>📚 SafeStudy</h2>  
-
-<p>  
-    Many students struggle with distractions,  
-    poor time management and difficulty  
-    planning their studies.  
-</p>  
-
-<br>  
-
-<p>  
-    SafeStudy helps students organize their  
-    study time and build better study habits.  
-</p>
-
-</div>  <!-- STUDY PLANNER -->  <div class="card">  <h2>📝 My Study Planner</h2>  
-
-<p>Add the subject or task you want to study.</p>  
-
-<input  
-    id="subject"  
-    type="text"  
-    placeholder="Example: Mathematics - Trigonometry"  
->  
-
-<select id="priority">  
-
-    <option value="Normal">  
-        Normal Priority  
-    </option>  
-
-    <option value="Important">  
-        Important  
-    </option>  
-
-    <option value="Very Important">  
-        Very Important  
-    </option>  
-
-</select>  
-
-<button onclick="addTask()">  
-    + ADD TO MY PLAN  
+</header>  <div class="container">  <!-- NAVIGATION -->  <div class="nav">  <button onclick="showSection('home')">  
+    🏠 HOME  
 </button>  
 
-<div id="taskList"></div>
+<button onclick="showSection('report')">  
+    📝 REPORT  
+</button>  
 
-</div>  <!-- FOCUS TIMER -->  <div class="card">  <h2>⏱️ Focus Timer</h2>  
+<button onclick="showSection('dashboard')">  
+    📊 DASHBOARD  
+</button>  
 
-<p>  
-    Study for a focused session and take  
-    a short break afterwards.  
-</p>  
+<button onclick="showSection('quiz')">  
+    🧠 SAFETY QUIZ  
+</button>  
 
-<div class="timer" id="timer">  
-    25:00  
-</div>  
+<button onclick="showSection('study')">  
+    📚 SAFESTUDY  
+</button>  
 
-<div class="timer-buttons">  
-
-    <button onclick="startTimer()">  
-        START  
-    </button>  
-
-    <button onclick="resetTimer()">  
-        RESET  
-    </button>  
-
-</div>
-
-</div>  <!-- STUDY PROBLEM -->  <div class="card">  <h2>💬 Study Problem</h2>  
-
-<p>  
-    What is making studying difficult for you?  
-</p>  
-
-<textarea  
-    id="problem"  
-    placeholder="Example: I cannot concentrate while studying..."  
-></textarea>  
-
-<button onclick="sendProblem()">  
-    SUBMIT  
+<button onclick="showSection('help')">  
+    🚨 SAFETY HELP  
 </button>
 
-</div>  <!-- TIPS -->  <div class="card">  <h2>💡 Smart Study Tips</h2>  
+</div>  <!-- HOME -->  <section id="home" class="section active">  <div class="card">  
 
-<div class="tip">  
-    📱 Keep unnecessary notifications off while studying.  
+    <h2>🏠 Welcome to SafeNest</h2>  
+
+    <p>  
+        SafeNest is a student science-project prototype  
+        designed to encourage safety awareness,  
+        responsible reporting and community participation.  
+    </p>  
+
 </div>  
 
-<div class="tip">  
-    📖 Break a large chapter into smaller topics.  
+
+<div class="card">  
+
+    <h2>🌱 Our Idea</h2>  
+
+    <p>  
+        Many everyday problems remain unnoticed because  
+        people don't know where or how to report them.  
+    </p>  
+
+    <p>  
+        SafeNest brings awareness, reporting and useful  
+        information together in one simple platform.  
+    </p>  
+
 </div>  
 
-<div class="tip">  
-    ⏰ Make a realistic daily study plan.  
-</div>  
 
-<div class="tip">  
-    🧠 Revise regularly instead of studying everything at once.  
-</div>  
+<div class="card">  
 
-<div class="tip">  
-    😴 Take proper breaks and get enough sleep.  
+    <h2>✨ What can you do?</h2>  
+
+    <p>📝 Report a civic problem</p>  
+    <p>📊 View a sample community dashboard</p>  
+    <p>🧠 Test your safety knowledge</p>  
+    <p>📚 Use study tools</p>  
+    <p>🚨 Find basic emergency information</p>  
+
 </div>
 
-</div>  </div>  <div class="footer">  SafeNest • Science Exhibition Project
+</section>  <!-- REPORT -->  <section id="report" class="section">  <div class="card">  
 
-</div>  <script>  
+    <h2>📝 Report a Problem</h2>  
+
+    <p>  
+        Describe a civic or public-safety problem  
+        that needs attention.  
+    </p>  
+
+
+    <label>  
+        Name (optional)  
+    </label>  
+
+    <input  
+        id="reportName"  
+        type="text"  
+        placeholder="Enter your name"  
+    >  
+
+
+    <label>  
+        Problem Category  
+    </label>  
+
+    <select id="reportCategory">  
+
+        <option value="">  
+            Select category  
+        </option>  
+
+        <option>  
+            Road Safety  
+        </option>  
+
+        <option>  
+            Street Light  
+        </option>  
+
+        <option>  
+            Garbage / Cleanliness  
+        </option>  
+
+        <option>  
+            Water Problem  
+        </option>  
+
+        <option>  
+            Electrical Safety  
+        </option>  
+
+        <option>  
+            Public Safety  
+        </option>  
+
+        <option>  
+            Other  
+        </option>  
+
+    </select>  
+
+
+    <label>  
+        Area / Locality  
+    </label>  
+
+    <input  
+        id="reportLocation"  
+        type="text"  
+        placeholder="Enter your area"  
+    >  
+
+
+    <label>  
+        Describe the Problem  
+    </label>  
+
+    <textarea  
+        id="reportProblem"  
+        placeholder="Describe the problem clearly..."  
+    ></textarea>  
+
+
+    <button  
+        class="action"  
+        onclick="submitReport()"  
+    >  
+        SUBMIT REPORT  
+    </button>  
+
+
+    <div id="reportSuccess" class="success">  
+        ✅ Thank you! Your report has been recorded  
+        in this prototype.  
+    </div>  
+
+</div>  
+
+
+<div class="card">  
+
+    <h2>⚠️ Important</h2>  
+
+    <p>  
+        SafeNest is a student project and is not an  
+        official government complaint portal.  
+    </p>  
+
+    <p>  
+        Do not share passwords, OTPs or other sensitive  
+        personal information.  
+    </p>  
+
+</div>
+
+</section>  <!-- DASHBOARD -->  <section id="dashboard" class="section">  <div class="card">  
+
+    <h2>📊 Community Dashboard</h2>  
+
+    <p>  
+        Example community data for demonstrating how  
+        reported problems could be organized.  
+    </p>  
+
+</div>  
+
+
+<div class="card">  
+
+    <div class="stats">  
+
+        <div class="stat">  
+            <strong>27</strong>  
+            Total Reports  
+        </div>  
+
+        <div class="stat">  
+            <strong>10</strong>  
+            Road Safety  
+        </div>  
+
+        <div class="stat">  
+            <strong>8</strong>  
+            Cleanliness  
+        </div>  
+
+        <div class="stat">  
+            <strong>6</strong>  
+            Street Lights  
+        </div>  
+
+    </div>  
+
+</div>  
+
+
+<div class="card">  
+
+    <h2>💡 How it helps</h2>  
+
+    <p>  
+        Grouping reports by category can help identify  
+        common problems and areas that may need attention.  
+    </p>  
+
+    <p>  
+        <b>Note:</b> These are sample numbers created  
+        for the science-project demonstration.  
+    </p>  
+
+</div>
+
+</section>  <!-- QUIZ -->  <section id="quiz" class="section">  <div class="card">  
+
+    <h2>🧠 Safety Quiz</h2>  
+
+    <p>  
+        Test your everyday safety knowledge.  
+    </p>  
+
+    <br>  
+
+    <p>  
+        <b>Question:</b>  
+        What should you do if you notice a dangerous  
+        public road condition?  
+    </p>  
+
+
+    <button  
+        class="quiz-option"  
+        onclick="quizAnswer(false)"  
+    >  
+        A. Ignore it  
+    </button>  
+
+
+    <button  
+        class="quiz-option"  
+        onclick="quizAnswer(true)"  
+    >  
+        B. Stay safe and report it through an  
+        appropriate channel  
+    </button>  
+
+
+    <button  
+        class="quiz-option"  
+        onclick="quizAnswer(false)"  
+    >  
+        C. Create more danger around it  
+    </button>  
+
+
+    <div  
+        id="quizResult"  
+        class="quiz-result"  
+    ></div>  
+
+</div>  
+
+
+<div class="card">  
+
+    <h2>🎯 Why quizzes?</h2>  
+
+    <p>  
+        Interactive questions can make safety  
+        awareness easier and more interesting to learn.  
+    </p>  
+
+</div>
+
+</section>  <!-- SAFESTUDY -->  <section id="study" class="section">  <div class="card">  
+
+    <h2>📚 SafeStudy</h2>  
+
+    <p>  
+        A small study-support section for students  
+        who need help organizing their study time.  
+    </p>  
+
+</div>  
+
+
+<div class="card">  
+
+    <h2>📝 Study Planner</h2>  
+
+    <input  
+        id="subject"  
+        type="text"  
+        placeholder="Example: Mathematics - Trigonometry"  
+    >  
+
+
+    <select id="priority">  
+
+        <option>  
+            Normal Priority  
+        </option>  
+
+        <option>  
+            Important  
+        </option>  
+
+        <option>  
+            Very Important  
+        </option>  
+
+    </select>  
+
+
+    <button  
+        class="action"  
+        onclick="addTask()"  
+    >  
+        + ADD TO PLAN  
+    </button>  
+
+
+    <div id="taskList"></div>  
+
+</div>  
+
+
+<div class="card">  
+
+    <h2>⏱️ Focus Timer</h2>  
+
+    <p>  
+        Use a focused study session and take a break  
+        afterwards.  
+    </p>  
+
+    <div id="timer" class="timer">  
+        25:00  
+    </div>  
+
+
+    <div class="timer-buttons">  
+
+        <button  
+            class="action"  
+            onclick="startTimer()"  
+        >  
+            START  
+        </button>  
+
+        <button  
+            class="action"  
+            onclick="resetTimer()"  
+        >  
+            RESET  
+        </button>  
+
+    </div>  
+
+</div>
+
+</section>  <!-- SAFETY HELP -->  <section id="help" class="section">  <div class="card">  
+
+    <h2>🚨 Emergency Help</h2>  
+
+    <p>  
+        For immediate emergencies in India,  
+        contact the appropriate official emergency service.  
+    </p>  
+
+    <div class="number">  
+        112  
+    </div>  
+
+    <p style="text-align:center;">  
+        National Emergency Number  
+    </p>  
+
+</div>  
+
+
+<div class="card">  
+
+    <h2>🛡️ Basic Safety Tips</h2>  
+
+    <div class="tip">  
+        🚦 Follow traffic rules and use safe routes.  
+    </div>  
+
+    <div class="tip">  
+        📱 Keep important emergency contacts accessible.  
+    </div>  
+
+    <div class="tip">  
+        🔐 Never share passwords or OTPs.  
+    </div>  
+
+    <div class="tip">  
+        👥 Tell a trusted adult or appropriate authority  
+        if you notice a serious safety concern.  
+    </div>  
+
+</div>
+
+</section>  </div>  <footer class="footer">  SafeNest • Science Exhibition Project
+
+</footer>  <script>  
+  
+/* SECTION NAVIGATION */  
+  
+function showSection(sectionId){  
+  
+    let sections =  
+        document.querySelectorAll(".section");  
+  
+    sections.forEach(function(section){  
+  
+        section.classList.remove("active");  
+  
+    });  
+  
+    document  
+        .getElementById(sectionId)  
+        .classList.add("active");  
+  
+    window.scrollTo({  
+        top:0,  
+        behavior:"smooth"  
+    });  
+}  
+  
+  
+  
+/* REPORT */  
+  
+function submitReport(){  
+  
+    let category =  
+        document.getElementById("reportCategory").value;  
+  
+    let location =  
+        document.getElementById("reportLocation").value;  
+  
+    let problem =  
+        document.getElementById("reportProblem").value;  
+  
+    if(category === "" ||  
+       location.trim() === "" ||  
+       problem.trim() === ""){  
+  
+        alert("Please complete the category, area and problem description.");  
+  
+        return;  
+    }  
+  
+    document  
+        .getElementById("reportSuccess")  
+        .style.display = "block";  
+  
+    document  
+        .getElementById("reportName")  
+        .value = "";  
+  
+    document  
+        .getElementById("reportCategory")  
+        .value = "";  
+  
+    document  
+        .getElementById("reportLocation")  
+        .value = "";  
+  
+    document  
+        .getElementById("reportProblem")  
+        .value = "";  
+}  
+  
+  
+  
+/* QUIZ */  
+  
+function quizAnswer(correct){  
+  
+    let result =  
+        document.getElementById("quizResult");  
+  
+    if(correct){  
+  
+        result.innerText =  
+            "✅ Correct! Responsible reporting can help improve safety.";  
+  
+    }else{  
+  
+        result.innerText =  
+            "❌ Not quite. The safer choice is to stay safe and report the problem appropriately.";  
+  
+    }  
+}  
+  
+  
   
 /* STUDY PLANNER */  
   
@@ -278,12 +807,11 @@ function addTask(){
         document.getElementById("priority").value;  
   
     if(subject.trim() === ""){  
+  
         alert("Please enter a study task.");  
+  
         return;  
     }  
-  
-    let taskList =  
-        document.getElementById("taskList");  
   
     let task =  
         document.createElement("div");  
@@ -291,43 +819,33 @@ function addTask(){
     task.className = "task";  
   
     task.innerHTML =  
-        "📚 <b>" + subject + "</b><br>" +  
-        "Priority: " + priority +  
+        "📚 <b>" +  
+        subject +  
+        "</b><br>" +  
+        "Priority: " +  
+        priority +  
         "<br><br>" +  
-        "<button onclick='this.parentElement.remove()'>" +  
+        "<button class='action' onclick='this.parentElement.remove()'>" +  
         "✓ COMPLETED" +  
         "</button>";  
   
-    taskList.appendChild(task);  
+    document  
+        .getElementById("taskList")  
+        .appendChild(task);  
   
-    document.getElementById("subject").value = "";  
+    document  
+        .getElementById("subject")  
+        .value = "";  
 }  
   
   
-/* STUDY PROBLEM */  
   
-function sendProblem(){  
-  
-    let problem =  
-        document.getElementById("problem").value;  
-  
-    if(problem.trim() === ""){  
-        alert("Please describe your study problem.");  
-        return;  
-    }  
-  
-    alert(  
-        "Thank you! Your study problem has been recorded in this prototype."  
-    );  
-  
-    document.getElementById("problem").value = "";  
-}  
-  
-  
-/* FOCUS TIMER */  
+/* TIMER */  
   
 let time = 25 * 60;  
+  
 let timerInterval = null;  
+  
   
 function updateTimer(){  
   
@@ -337,10 +855,13 @@ function updateTimer(){
     let seconds =  
         time % 60;  
   
-    seconds =  
-        seconds < 10 ? "0" + seconds : seconds;  
+    if(seconds < 10){  
+        seconds = "0" + seconds;  
+    }  
   
-    document.getElementById("timer").innerText =  
+    document  
+        .getElementById("timer")  
+        .innerText =  
         minutes + ":" + seconds;  
 }  
   
@@ -387,4 +908,4 @@ function resetTimer(){
 }  
   
 </script>  </body>  
-</html>
+                                             </html>
