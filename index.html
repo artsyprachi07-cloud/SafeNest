@@ -1,0 +1,390 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>SafeNest</title>  <style>  
+*{  
+    box-sizing:border-box;  
+    margin:0;  
+    padding:0;  
+}  
+  
+body{  
+    font-family:Arial,sans-serif;  
+    background:#fff8e8;  
+    color:#5b4630;  
+    min-height:100vh;  
+}  
+  
+header{  
+    text-align:center;  
+    padding:45px 20px 25px;  
+}  
+  
+.shield{  
+    font-size:60px;  
+}  
+  
+.logo{  
+    font-size:42px;  
+    letter-spacing:5px;  
+    color:#8b6438;  
+    font-weight:bold;  
+}  
+  
+.tagline{  
+    margin-top:8px;  
+    font-size:17px;  
+    color:#9a7448;  
+    font-style:italic;  
+}  
+  
+.line{  
+    width:80px;  
+    height:3px;  
+    background:#c99a5b;  
+    margin:18px auto;  
+}  
+  
+.intro{  
+    max-width:520px;  
+    margin:20px auto;  
+    line-height:1.6;  
+    font-size:16px;  
+}  
+  
+.container{  
+    width:92%;  
+    max-width:600px;  
+    margin:auto;  
+}  
+  
+.card{  
+    background:white;  
+    padding:22px;  
+    margin:18px 0;  
+    border-radius:18px;  
+    box-shadow:0 4px 15px rgba(0,0,0,.08);  
+}  
+  
+.card h2{  
+    color:#8b6438;  
+    margin-bottom:12px;  
+}  
+  
+.card p{  
+    line-height:1.6;  
+}  
+  
+input,textarea,select{  
+    width:100%;  
+    padding:13px;  
+    margin:8px 0 14px;  
+    border:1px solid #c99a5b;  
+    border-radius:10px;  
+    font-size:15px;  
+}  
+  
+textarea{  
+    height:100px;  
+}  
+  
+button{  
+    width:100%;  
+    padding:15px;  
+    border:none;  
+    border-radius:12px;  
+    background:#8b6438;  
+    color:white;  
+    font-size:16px;  
+    font-weight:bold;  
+    cursor:pointer;  
+}  
+  
+button:hover{  
+    opacity:.9;  
+}  
+  
+.task{  
+    background:#fff8e8;  
+    padding:12px;  
+    margin:8px 0;  
+    border-radius:10px;  
+}  
+  
+.timer{  
+    text-align:center;  
+    font-size:48px;  
+    font-weight:bold;  
+    color:#8b6438;  
+    margin:15px;  
+}  
+  
+.timer-buttons{  
+    display:flex;  
+    gap:10px;  
+}  
+  
+.timer-buttons button{  
+    flex:1;  
+}  
+  
+.tip{  
+    padding:12px;  
+    border-left:4px solid #c99a5b;  
+    margin:10px 0;  
+    background:#fffaf0;  
+}  
+  
+.footer{  
+    text-align:center;  
+    padding:30px 15px;  
+    color:#92785c;  
+    font-size:13px;  
+}  
+</style>  </head>  <body>  <header>  <div class="shield">🛡️</div>  
+
+<h1 class="logo">SAFENEST</h1>  
+
+<p class="tagline">  
+    Science for a Safer Society  
+</p>  
+
+<div class="line"></div>  
+
+<p class="intro">  
+    A citizen-focused platform for safety,  
+    awareness and everyday problems.  
+</p>
+
+</header>  <div class="container">  <!-- STUDY PROBLEM -->  <div class="card">  <h2>📚 SafeStudy</h2>  
+
+<p>  
+    Many students struggle with distractions,  
+    poor time management and difficulty  
+    planning their studies.  
+</p>  
+
+<br>  
+
+<p>  
+    SafeStudy helps students organize their  
+    study time and build better study habits.  
+</p>
+
+</div>  <!-- STUDY PLANNER -->  <div class="card">  <h2>📝 My Study Planner</h2>  
+
+<p>Add the subject or task you want to study.</p>  
+
+<input  
+    id="subject"  
+    type="text"  
+    placeholder="Example: Mathematics - Trigonometry"  
+>  
+
+<select id="priority">  
+
+    <option value="Normal">  
+        Normal Priority  
+    </option>  
+
+    <option value="Important">  
+        Important  
+    </option>  
+
+    <option value="Very Important">  
+        Very Important  
+    </option>  
+
+</select>  
+
+<button onclick="addTask()">  
+    + ADD TO MY PLAN  
+</button>  
+
+<div id="taskList"></div>
+
+</div>  <!-- FOCUS TIMER -->  <div class="card">  <h2>⏱️ Focus Timer</h2>  
+
+<p>  
+    Study for a focused session and take  
+    a short break afterwards.  
+</p>  
+
+<div class="timer" id="timer">  
+    25:00  
+</div>  
+
+<div class="timer-buttons">  
+
+    <button onclick="startTimer()">  
+        START  
+    </button>  
+
+    <button onclick="resetTimer()">  
+        RESET  
+    </button>  
+
+</div>
+
+</div>  <!-- STUDY PROBLEM -->  <div class="card">  <h2>💬 Study Problem</h2>  
+
+<p>  
+    What is making studying difficult for you?  
+</p>  
+
+<textarea  
+    id="problem"  
+    placeholder="Example: I cannot concentrate while studying..."  
+></textarea>  
+
+<button onclick="sendProblem()">  
+    SUBMIT  
+</button>
+
+</div>  <!-- TIPS -->  <div class="card">  <h2>💡 Smart Study Tips</h2>  
+
+<div class="tip">  
+    📱 Keep unnecessary notifications off while studying.  
+</div>  
+
+<div class="tip">  
+    📖 Break a large chapter into smaller topics.  
+</div>  
+
+<div class="tip">  
+    ⏰ Make a realistic daily study plan.  
+</div>  
+
+<div class="tip">  
+    🧠 Revise regularly instead of studying everything at once.  
+</div>  
+
+<div class="tip">  
+    😴 Take proper breaks and get enough sleep.  
+</div>
+
+</div>  </div>  <div class="footer">  SafeNest • Science Exhibition Project
+
+</div>  <script>  
+  
+/* STUDY PLANNER */  
+  
+function addTask(){  
+  
+    let subject =  
+        document.getElementById("subject").value;  
+  
+    let priority =  
+        document.getElementById("priority").value;  
+  
+    if(subject.trim() === ""){  
+        alert("Please enter a study task.");  
+        return;  
+    }  
+  
+    let taskList =  
+        document.getElementById("taskList");  
+  
+    let task =  
+        document.createElement("div");  
+  
+    task.className = "task";  
+  
+    task.innerHTML =  
+        "📚 <b>" + subject + "</b><br>" +  
+        "Priority: " + priority +  
+        "<br><br>" +  
+        "<button onclick='this.parentElement.remove()'>" +  
+        "✓ COMPLETED" +  
+        "</button>";  
+  
+    taskList.appendChild(task);  
+  
+    document.getElementById("subject").value = "";  
+}  
+  
+  
+/* STUDY PROBLEM */  
+  
+function sendProblem(){  
+  
+    let problem =  
+        document.getElementById("problem").value;  
+  
+    if(problem.trim() === ""){  
+        alert("Please describe your study problem.");  
+        return;  
+    }  
+  
+    alert(  
+        "Thank you! Your study problem has been recorded in this prototype."  
+    );  
+  
+    document.getElementById("problem").value = "";  
+}  
+  
+  
+/* FOCUS TIMER */  
+  
+let time = 25 * 60;  
+let timerInterval = null;  
+  
+function updateTimer(){  
+  
+    let minutes =  
+        Math.floor(time / 60);  
+  
+    let seconds =  
+        time % 60;  
+  
+    seconds =  
+        seconds < 10 ? "0" + seconds : seconds;  
+  
+    document.getElementById("timer").innerText =  
+        minutes + ":" + seconds;  
+}  
+  
+  
+function startTimer(){  
+  
+    if(timerInterval !== null){  
+        return;  
+    }  
+  
+    timerInterval =  
+        setInterval(function(){  
+  
+            if(time > 0){  
+  
+                time--;  
+  
+                updateTimer();  
+  
+            }else{  
+  
+                clearInterval(timerInterval);  
+  
+                timerInterval = null;  
+  
+                alert(  
+                    "🎉 Focus session completed! Take a short break."  
+                );  
+            }  
+  
+        },1000);  
+}  
+  
+  
+function resetTimer(){  
+  
+    clearInterval(timerInterval);  
+  
+    timerInterval = null;  
+  
+    time = 25 * 60;  
+  
+    updateTimer();  
+}  
+  
+</script>  </body>  
+</html>
