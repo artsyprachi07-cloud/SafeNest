@@ -1,0 +1,487 @@
+<!DOCTYPE html>  <html lang="en">  <head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>SafeNest</title>  <style>  
+  
+* {  
+    box-sizing: border-box;  
+    margin: 0;  
+    padding: 0;  
+}  
+  
+body {  
+    font-family: Arial, sans-serif;  
+    background: #fff8e8;  
+    color: #5b4630;  
+}  
+  
+/* HOME */  
+  
+.home {  
+    min-height: 100vh;  
+    text-align: center;  
+    padding: 45px 20px;  
+}  
+  
+.shield {  
+    font-size: 70px;  
+    margin-bottom: 10px;  
+}  
+  
+.logo {  
+    font-size: 43px;  
+    font-weight: bold;  
+    letter-spacing: 6px;  
+    color: #8b6438;  
+}  
+  
+.tagline {  
+    margin-top: 10px;  
+    color: #9a7448;  
+    font-size: 17px;  
+    font-style: italic;  
+}  
+  
+.line {  
+    width: 90px;  
+    height: 3px;  
+    background: #c99a5b;  
+    margin: 20px auto;  
+    border-radius: 10px;  
+}  
+  
+.introduction {  
+    max-width: 500px;  
+    margin: 20px auto 30px;  
+    line-height: 1.7;  
+    font-size: 16px;  
+}  
+  
+.main-button {  
+    display: block;  
+    width: 90%;  
+    max-width: 480px;  
+    margin: 14px auto;  
+    padding: 18px;  
+    border: 2px solid #c99a5b;  
+    border-radius: 15px;  
+    background: transparent;  
+    color: #8b6438;  
+    font-size: 18px;  
+    font-weight: bold;  
+    letter-spacing: 2px;  
+}  
+  
+.main-button:hover {  
+    background: #c99a5b;  
+    color: white;  
+}  
+  
+/* PAGES */  
+  
+.page {  
+    display: none;  
+    min-height: 100vh;  
+    padding: 35px 20px;  
+}  
+  
+.page:target {  
+    display: block;  
+}  
+  
+.page-icon {  
+    text-align: center;  
+    font-size: 55px;  
+}  
+  
+.page-title {  
+    text-align: center;  
+    color: #8b6438;  
+    font-size: 32px;  
+    letter-spacing: 3px;  
+    margin-top: 10px;  
+}  
+  
+.content {  
+    max-width: 520px;  
+    margin: 25px auto;  
+}  
+  
+.card {  
+    background: white;  
+    padding: 22px;  
+    margin: 16px 0;  
+    border-radius: 16px;  
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);  
+}  
+  
+.card h2 {  
+    color: #8b6438;  
+    margin-bottom: 12px;  
+}  
+  
+.card p {  
+    line-height: 1.6;  
+    margin: 7px 0;  
+}  
+  
+/* FORM */  
+  
+label {  
+    display: block;  
+    margin-top: 15px;  
+    margin-bottom: 6px;  
+    font-weight: bold;  
+}  
+  
+input,  
+select,  
+textarea {  
+    width: 100%;  
+    padding: 13px;  
+    border: 1px solid #c99a5b;  
+    border-radius: 10px;  
+    font-size: 15px;  
+    font-family: Arial, sans-serif;  
+}  
+  
+textarea {  
+    height: 120px;  
+    resize: vertical;  
+}  
+  
+.submit {  
+    width: 100%;  
+    margin-top: 18px;  
+    padding: 15px;  
+    border: none;  
+    border-radius: 10px;  
+    background: #8b6438;  
+    color: white;  
+    font-size: 16px;  
+    font-weight: bold;  
+}  
+  
+/* EMERGENCY */  
+  
+.number {  
+    text-align: center;  
+    font-size: 36px;  
+    font-weight: bold;  
+    color: #a34d37;  
+    margin: 15px;  
+}  
+  
+/* BACK */  
+  
+.back {  
+    display: block;  
+    text-align: center;  
+    margin: 25px auto;  
+    color: #8b6438;  
+    font-weight: bold;  
+    text-decoration: none;  
+}  
+  
+.footer {  
+    margin-top: 35px;  
+    font-size: 13px;  
+    color: #92785c;  
+}  
+  
+</style>  </head>  <body>  <!-- HOME -->  <section class="home">  <p class="shield">🛡️</p>  
+
+<h1 class="logo">  
+    SAFENEST  
+</h1>  
+
+<p class="tagline">  
+    Science for a Safer Society  
+</p>  
+
+<p class="line"></p>  
+
+<p class="introduction">  
+    A citizen safety platform designed to  
+    spread awareness, report problems and  
+    provide useful safety information.  
+</p>  
+
+
+<a href="#civilian">  
+    <button class="main-button">  
+        👤 CIVILIAN  
+    </button>  
+</a>  
+
+
+<a href="#official">  
+    <button class="main-button">  
+        🏛️ OFFICIAL  
+    </button>  
+</a>  
+
+
+<a href="#supervisor">  
+    <button class="main-button">  
+        👁️ SUPERVISOR  
+    </button>  
+</a>  
+
+
+<p class="footer">  
+    SafeNest • Science Exhibition Project  
+</p>
+
+</section>  <!-- CIVILIAN -->  <section id="civilian" class="page">  <p class="page-icon">👤</p>  
+
+<h1 class="page-title">  
+    CIVILIAN  
+</h1>  
+
+
+<main class="content">  
+
+
+    <article class="card">  
+
+        <h2>🚨 Emergency Help</h2>  
+
+        <p>  
+            For immediate emergencies in India,  
+            contact the appropriate official  
+            emergency service.  
+        </p>  
+
+        <p class="number">  
+            112  
+        </p>  
+
+    </article>  
+
+
+
+    <article class="card">  
+
+        <h2>📝 Report a Problem</h2>  
+
+        <p>  
+            Tell us about a civic or safety  
+            problem in your area.  
+        </p>  
+
+
+        <form>  
+
+            <label>  
+                Name (optional)  
+            </label>  
+
+            <input  
+                type="text"  
+                placeholder="Enter your name"  
+            >  
+
+
+            <label>  
+                Problem Category  
+            </label>  
+
+            <select>  
+
+                <option>  
+                    Select category  
+                </option>  
+
+                <option>  
+                    Road Safety  
+                </option>  
+
+                <option>  
+                    Street Light  
+                </option>  
+
+                <option>  
+                    Garbage / Cleanliness  
+                </option>  
+
+                <option>  
+                    Water Problem  
+                </option>  
+
+                <option>  
+                    Electrical Safety  
+                </option>  
+
+                <option>  
+                    Public Safety  
+                </option>  
+
+                <option>  
+                    Other  
+                </option>  
+
+            </select>  
+
+
+            <label>  
+                Area / Locality  
+            </label>  
+
+            <input  
+                type="text"  
+                placeholder="Enter your area"  
+            >  
+
+
+            <label>  
+                Describe the Problem  
+            </label>  
+
+            <textarea  
+                placeholder="Describe your problem..."  
+            ></textarea>  
+
+
+            <button  
+                class="submit"  
+                type="button"  
+                onclick="alert('Thank you! Your report has been received by the SafeNest prototype.')"  
+            >  
+                SUBMIT REPORT  
+            </button>  
+
+        </form>  
+
+    </article>  
+
+
+
+    <article class="card">  
+
+        <h2>🛡️ Safety Tips</h2>  
+
+        <p>✅ Follow traffic rules.</p>  
+
+        <p>✅ Stay aware of your surroundings.</p>  
+
+        <p>✅ Keep emergency contacts accessible.</p>  
+
+        <p>✅ Never share passwords or OTPs.</p>  
+
+    </article>  
+
+
+    <a class="back" href="#">  
+        ← BACK TO HOME  
+    </a>  
+
+</main>
+
+</section>  <!-- OFFICIAL -->  <section id="official" class="page">  <p class="page-icon">🏛️</p>  
+
+<h1 class="page-title">  
+    OFFICIAL  
+</h1>  
+
+
+<main class="content">  
+
+    <article class="card">  
+
+        <h2>📋 Citizen Reports</h2>  
+
+        <p>  
+            Citizen reports can help identify  
+            civic and public-safety problems.  
+        </p>  
+
+    </article>  
+
+
+    <article class="card">  
+
+        <h2>🔎 Review & Response</h2>  
+
+        <p>  
+            Authorized officials could review  
+            genuine reports and forward them  
+            to the appropriate department.  
+        </p>  
+
+    </article>  
+
+
+    <article class="card">  
+
+        <h2>⚠️ Important</h2>  
+
+        <p>  
+            SafeNest is a student science-project  
+            prototype and is not an official  
+            government complaint portal.  
+        </p>  
+
+    </article>  
+
+
+    <a class="back" href="#">  
+        ← BACK TO HOME  
+    </a>  
+
+</main>
+
+</section>  <!-- SUPERVISOR -->  <section id="supervisor" class="page">  <p class="page-icon">👁️</p>  
+
+<h1 class="page-title">  
+    SUPERVISOR  
+</h1>  
+
+
+<main class="content">  
+
+    <article class="card">  
+
+        <h2>📊 Community Safety</h2>  
+
+        <p>  
+            Supervisors can study reported  
+            problems and identify common  
+            safety concerns.  
+        </p>  
+
+    </article>  
+
+
+    <article class="card">  
+
+        <h2>🌱 Our Goal</h2>  
+
+        <p>  
+            To encourage citizens to participate  
+            in creating safer communities.  
+        </p>  
+
+    </article>  
+
+
+    <article class="card">  
+
+        <h2>💡 How SafeNest Helps</h2>  
+
+        <p>  
+            Awareness + Citizen Participation  
+            + Responsible Reporting  
+            = Safer Communities  
+        </p>  
+
+    </article>  
+
+
+    <a class="back" href="#">  
+        ← BACK TO HOME  
+    </a>  
+
+</main>
+
+</section>  </body>  
+  </html>
